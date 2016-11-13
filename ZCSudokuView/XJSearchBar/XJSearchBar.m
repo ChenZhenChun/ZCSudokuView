@@ -104,9 +104,7 @@
         
         UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 18, 12)];
         leftView.backgroundColor = [UIColor clearColor];
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 0, 13, 12)];
-        imageView.image = self.placeholderImage;
-        [leftView addSubview:imageView];
+        [leftView addSubview:self.placeholderImageView];
         _textField.leftViewMode = UITextFieldViewModeAlways;
         _textField.leftView = leftView;
     }
@@ -354,11 +352,11 @@
     return _scale;
 }
 
-- (UIImage *)placeholderImage {
-    if (!_placeholderImage) {
-        _placeholderImage = [[UIImage alloc] init];
+- (UIImageView *)placeholderImageView {
+    if (!_placeholderImageView) {
+        _placeholderImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 0, 13, 12)];
     }
-    return _placeholderImage;
+    return _placeholderImageView;
 }
 
 #pragma mark - 判断是否为空

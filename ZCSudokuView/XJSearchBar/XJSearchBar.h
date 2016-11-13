@@ -27,7 +27,7 @@
 @property (nonatomic,assign)    NSInteger                   number;//总数
 @property (nonatomic,copy)      NSString                    *title;
 @property (nonatomic,readonly)  NSString                    *searchBarText;
-@property (nonatomic,strong)    UIImage                     *placeholderImage;//放大镜图片
+@property (nonatomic,strong)    UIImageView                 *placeholderImageView;//放大镜图片
 @property (nonatomic,strong)    UIButton                    *filterBtn;//筛选按钮
 //- (void)showWithDuration:(NSTimeInterval)duration animations:(BOOL)animations;
 //- (void)hiddenWithDuration:(NSTimeInterval)duration animations:(BOOL)animations;

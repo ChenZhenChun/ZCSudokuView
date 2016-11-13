@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = "ZCSudokuView"
-s.version          = "1.0.0"
+s.version          = "1.0.1"
 s.summary          = "a sudoku view used on iOS."
 s.description      = <<-DESC
 It is a sudoku view used on iOS, which implement by Objective-C.
@@ -12,8 +12,8 @@ s.source           = { :git => "https://github.com/ChenZhenChun/ZCSudokuView.git
 s.platform     = :ios, '7.0'
 s.requires_arc = true
 
-s.source_files  = 'ZCSudokuView/**/*'
-#s.resources = 'Assets'
+s.source_files  = 'ZCSudokuView/**/*.{h,m}'
+s.resources = 'ZCSudokuView/XJSearchBar/image/*.png'
 
 # s.ios.exclude_files = 'Classes/osx'
 # s.osx.exclude_files = 'Classes/ios'

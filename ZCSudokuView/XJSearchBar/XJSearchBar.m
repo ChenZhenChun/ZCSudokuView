@@ -24,7 +24,6 @@
 @property (nonatomic,strong) UIView             *shadeBgView;//遮罩层
 @property (nonatomic,strong) UIView             *textFieldContentView;
 @property (nonatomic,strong) UITextField        *textField;//搜索框
-@property (nonatomic,strong) UIButton           *filterBtn;//筛选按钮
 
 @property (nonatomic,strong) UIView             *titleContentView;
 @property (nonatomic,strong) UILabel            *themeTitle;//主题（“健康百科”）
@@ -73,7 +72,6 @@
         _filterBtn.backgroundColor = [UIColor clearColor];
         [_filterBtn setTitle:@"筛选" forState:UIControlStateNormal];
         [_filterBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-        [_filterBtn setImage:[UIImage imageNamed:@"healthknnowlege_filter"] forState:UIControlStateNormal];
         _filterBtn.titleLabel.font = [UIFont systemFontOfSize:15];
         _filterBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
         [_filterBtn addTarget:self action:@selector(clickBtn:) forControlEvents:UIControlEventTouchUpInside];
@@ -107,7 +105,7 @@
         UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 18, 12)];
         leftView.backgroundColor = [UIColor clearColor];
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 0, 13, 12)];
-        imageView.image = [UIImage imageNamed:@"SearchIcon_Gray"];
+        imageView.image = self.placeholderImage;
         [leftView addSubview:imageView];
         _textField.leftViewMode = UITextFieldViewModeAlways;
         _textField.leftView = leftView;
@@ -354,6 +352,13 @@
         _scale = ([UIScreen mainScreen].bounds.size.height>480?[UIScreen mainScreen].bounds.size.height/667.0:0.851574);
     }
     return _scale;
+}
+
+- (UIImage *)placeholderImage {
+    if (!_placeholderImage) {
+        _placeholderImage = [[UIImage alloc] init];
+    }
+    return _placeholderImage;
 }
 
 #pragma mark - 判断是否为空

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = "ZCSudokuView"
-s.version          = "1.0.1"
+s.version          = "1.0.2"
 s.summary          = "a sudoku view used on iOS."
 s.description      = <<-DESC
 It is a sudoku view used on iOS, which implement by Objective-C.
@@ -13,7 +13,9 @@ s.platform     = :ios, '7.0'
 s.requires_arc = true
 
 s.source_files  = 'ZCSudokuView/**/*.{h,m}'
-s.resources = 'ZCSudokuView/XJSearchBar/image/*.png'
+
+#不知道为什么资源图片加上去后，项目认不到图片
+#s.resources = 'ZCSudokuView/XJSearchBar/image/*.png'
 
 # s.ios.exclude_files = 'Classes/osx'
 # s.osx.exclude_files = 'Classes/ios'

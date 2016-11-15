@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = "ZCSudokuView"
-s.version          = "1.0.3"
+s.version          = "1.0.4"
 s.summary          = "a sudoku view used on iOS."
 s.description      = <<-DESC
 It is a sudoku view used on iOS, which implement by Objective-C.

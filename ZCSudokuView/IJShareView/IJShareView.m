@@ -9,15 +9,15 @@
 #import "IJShareView.h"
 
 #define kContentViewH (352*_scale)
-#define SVScreenHeight [[UIScreen mainScreen] bounds].size.height
-#define SVScreenWidth [[UIScreen mainScreen] bounds].size.width
+#define KScreenWidth                     ([UIScreen mainScreen].bounds.size.width)
+#define KScreenHeight                    ([UIScreen mainScreen].bounds.size.height)
 
 @interface IJShareView()
 {
     NSTimeInterval _durationTime;
     BOOL           _animations;
+    CGFloat         _scale;
 }
-@property (nonatomic,assign) CGFloat         scale;//屏幕比例
 @property (nonatomic,strong) UIView         *contentView;
 @property (nonatomic,strong) ZCSudokuView   *sudokuViewTemp;
 @property (nonatomic,strong) UIButton       *titleBtn;
@@ -32,7 +32,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.frame = CGRectMake(0,SVScreenHeight,SVScreenWidth,SVScreenHeight);
+        _scale = ([UIScreen mainScreen].bounds.size.height>480?[UIScreen mainScreen].bounds.size.height/667.0:0.851574);
+        self.frame = CGRectMake(0,KScreenHeight,KScreenWidth,KScreenHeight);
         self.backgroundColor = [UIColor colorWithRed:106/255.0 green:106/255.0 blue:106/255.0 alpha:0.3];
         [[UIApplication sharedApplication].keyWindow addSubview:self];
         self.userInteractionEnabled = YES;
@@ -56,8 +57,8 @@
         
         self.userInteractionEnabled = YES;
         _contentView.frame = CGRectMake(0,
-                                        SVScreenHeight-kContentViewH,
-                                        SVScreenWidth,
+                                        KScreenHeight-kContentViewH,
+                                        KScreenWidth,
                                         kContentViewH);
         
     }
@@ -73,9 +74,9 @@
         _titleBtn.titleLabel.font = [UIFont systemFontOfSize:16*_scale];
         _titleBtn.userInteractionEnabled = YES;
         _titleBtn.frame = CGRectMake(0,
-                                       0,
-                                       SVScreenWidth,
-                                       44*_scale);
+                                     0,
+                                     KScreenWidth,
+                                     44*_scale);
     }
     return _titleBtn;
 }
@@ -90,9 +91,9 @@
         _sudokuViewTemp.layer.borderWidth = 0.5;
         [_sudokuViewTemp showWithView:self.contentView];
         _sudokuViewTemp.frame = CGRectMake(0,
-                                       44*_scale,
-                                       SVScreenWidth,
-                                       258*_scale);
+                                           44*_scale,
+                                           KScreenWidth,
+                                           258*_scale);
         
     }
     return _sudokuViewTemp;
@@ -108,9 +109,9 @@
         _cancelBtn.titleLabel.font = [UIFont systemFontOfSize:16*_scale];
         _cancelBtn.userInteractionEnabled = NO;
         _cancelBtn.frame = CGRectMake(0,
-                                   kContentViewH-50*_scale,
-                                   SVScreenWidth,
-                                   50*_scale);
+                                      kContentViewH-50*_scale,
+                                      KScreenWidth,
+                                      50*_scale);
     }
     return _cancelBtn;
 }
@@ -145,21 +146,12 @@
         __weak typeof(self)weakSelf = self;
         [UIView animateWithDuration:duration animations:^{
             [weakSelf sendSubviewToBack:weakSelf.superview];
-            weakSelf.frame = CGRectMake(0,2*SVScreenHeight,SVScreenWidth,SVScreenHeight);
+            weakSelf.frame = CGRectMake(0,2*KScreenHeight,KScreenWidth,KScreenHeight);
         }];
     }else {
         [self sendSubviewToBack:self.superview];
-        self.frame = CGRectMake(0,2*SVScreenHeight,SVScreenWidth,SVScreenHeight);
+        self.frame = CGRectMake(0,2*KScreenHeight,KScreenWidth,KScreenHeight);
     }
-}
-
-#pragma mark - Properties
-
-- (CGFloat)scale {
-    if (_scale == 0) {
-        _scale = ([UIScreen mainScreen].bounds.size.height>480?[UIScreen mainScreen].bounds.size.height/667.0:0.851574);
-    }
-    return _scale;
 }
 
 @end

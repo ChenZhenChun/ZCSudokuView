@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
 s.name              = "ZCSudokuView"
 
 #更新代码必须修改版本号
-s.version           = "1.0.6"
+s.version           = "1.0.7"
 s.summary           = "a sudoku view used on iOS."
 s.description       = <<-DESC
 It is a sudoku view used on iOS, which implement by Objective-C.
@@ -18,7 +18,6 @@ s.platform          = :ios, '7.0'
 s.requires_arc = true
 
 #source_files路径是相对podspec文件的路径
-s.default_subspecs    = 'ZCSudokuView'
 
 #核心模块
 s.subspec 'ZCSudokuView' do |ss|

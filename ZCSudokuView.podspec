@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
 s.name              = "ZCSudokuView"
 
 #更新代码必须修改版本号
-s.version           = "1.0.5"
+s.version           = "1.0.6"
 s.summary           = "a sudoku view used on iOS."
 s.description       = <<-DESC
 It is a sudoku view used on iOS, which implement by Objective-C.
@@ -22,8 +22,8 @@ s.default_subspecs    = 'ZCSudokuView'
 
 #核心模块
 s.subspec 'ZCSudokuView' do |ss|
-ss.source_files = 'ZCSudokuView/*.{h,m}'
-ss.public_header_files = 'ZCSudokuView/*.h'
+ss.source_files = 'ZCSudokuView/ZCSudokuView/*.{h,m}'
+ss.public_header_files = 'ZCSudokuView/ZCSudokuView/*.h'
 end
 
 #子模块IJShareView（分享视图控件）

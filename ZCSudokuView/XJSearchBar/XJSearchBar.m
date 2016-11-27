@@ -7,8 +7,6 @@
 //
 
 #import "XJSearchBar.h"
-#import "ZCSudokuCell.h"
-#import "ZCSudokuView.h"
 
 #define kTitleContentViewH 40
 #define ksudokuPadding     (14*self.scale)

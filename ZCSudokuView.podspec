@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
 s.name              = "ZCSudokuView"
 
 #更新代码必须修改版本号
-s.version           = "1.1.0"
+s.version           = "1.1.1"
 s.summary           = "a sudoku view used on iOS."
 s.description       = <<-DESC
 It is a sudoku view used on iOS, which implement by Objective-C.
@@ -40,9 +40,9 @@ ss.dependency 'ZCSudokuView/ZCSudokuView'
 end
 
 #子模块image(存放图片)
-#s.subspec 'image' do |ss|
-#ss.resources = 'ZCSudokuView/image/*.png'
-#end
+s.subspec 'image' do |ss|
+ss.resources = 'ZCSudokuView/image/*.png'
+end
 
 s.frameworks = 'Foundation', 'UIKit'
 

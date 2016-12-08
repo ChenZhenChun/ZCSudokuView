@@ -18,8 +18,8 @@
 - (void)XJSearchBar:(ZCSudokuCell *)sudokuCell cellForRowAtIndext:(NSInteger)index;
 @optional
 - (void)XJSearchBar:(ZCSudokuCell *)sudokuCell didSelectedCellWithIndex:(NSInteger)index;
-- (void)XJSearchBarGoSearch:(XJSearchBar *)searchBar;//搜索按钮点击
-
+- (void)XJSearchBarGoSearch:(XJSearchBar *)searchBar textField:(UITextField *)textField;//搜索按钮点击
+- (void)XJSearchBarDidChange:(XJSearchBar *)searchBar textField:(UITextField *)textField;
 @end
 
 @interface XJSearchBar : UIView

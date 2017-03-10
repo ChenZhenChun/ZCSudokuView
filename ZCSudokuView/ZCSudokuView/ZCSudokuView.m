@@ -63,6 +63,7 @@
     _pageSizeAmount = ceilf(_number/(CGFloat)(_columnAmount*_rowAmount));
     
     //设置scrollView的内容大小
+    self.scrollView.frame = self.bounds;
     self.scrollView.contentSize = CGSizeMake(kSelfW*_pageSizeAmount,kSelfH);
     
     if (_pageSizeAmount>1) {
@@ -180,7 +181,6 @@
         _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.pagingEnabled = YES;
         _scrollView.delegate = self;
-        _scrollView.frame = self.bounds;
         //        _scrollView.bounces = NO;//关闭拖拽弹动效果
         [self addSubview:_scrollView];
     }

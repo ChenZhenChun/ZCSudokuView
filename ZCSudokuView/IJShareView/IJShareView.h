@@ -12,7 +12,9 @@
 
 @interface IJShareView : UIView
 //get后需要设置delegate和number属性，然后调用reloadData方法
-@property (nonatomic,readonly) ZCSudokuView   *sudokuView;
+@property (nonatomic,readonly) ZCSudokuView     *sudokuView;
+@property (nonatomic,readonly) UIButton           *titleBtn;
+@property (nonatomic,readonly) UIButton           *cancelBtn;
 
 //显示菜单
 - (void)showWithDuration:(NSTimeInterval)duration animations:(BOOL)animations;

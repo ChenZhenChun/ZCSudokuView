@@ -19,7 +19,7 @@
     CGFloat         _scale;
 }
 @property (nonatomic,strong) UIView         *contentView;
-@property (nonatomic,strong) ZCSudokuView   *sudokuViewTemp;
+@property (nonatomic,strong) ZCSudokuView   *sudokuView;
 @property (nonatomic,strong) UIButton       *titleBtn;
 @property (nonatomic,strong) UIButton       *cancelBtn;
 
@@ -52,7 +52,7 @@
         [self addSubview:_contentView];
         
         [_contentView addSubview:self.titleBtn];
-        [self.sudokuViewTemp showWithView:_contentView];
+        [self.sudokuView showWithView:_contentView];
         [_contentView addSubview:self.cancelBtn];
         
         self.userInteractionEnabled = YES;
@@ -81,22 +81,22 @@
     return _titleBtn;
 }
 
-- (ZCSudokuView *)sudokuViewTemp {
-    if (!_sudokuViewTemp) {
-        _sudokuViewTemp = [[ZCSudokuView alloc] init];
-        _sudokuViewTemp.backgroundColor = [UIColor whiteColor];
-        _sudokuViewTemp.columnAmount = 3;
-        _sudokuViewTemp.rowAmount = 2;
-        _sudokuViewTemp.layer.borderColor = [UIColor colorWithRed:207/255.0 green:210/255.0 blue:213/255.0 alpha:0.7].CGColor;
-        _sudokuViewTemp.layer.borderWidth = 0.5;
-        [_sudokuViewTemp showWithView:self.contentView];
-        _sudokuViewTemp.frame = CGRectMake(0,
+- (ZCSudokuView *)sudokuView {
+    if (!_sudokuView) {
+        _sudokuView = [[ZCSudokuView alloc] init];
+        _sudokuView.backgroundColor = [UIColor whiteColor];
+        _sudokuView.columnAmount = 3;
+        _sudokuView.rowAmount = 2;
+        _sudokuView.layer.borderColor = [UIColor colorWithRed:207/255.0 green:210/255.0 blue:213/255.0 alpha:0.7].CGColor;
+        _sudokuView.layer.borderWidth = 0.5;
+        [_sudokuView showWithView:self.contentView];
+        _sudokuView.frame = CGRectMake(0,
                                            44*_scale,
                                            KScreenWidth,
                                            258*_scale);
         
     }
-    return _sudokuViewTemp;
+    return _sudokuView;
 }
 
 //UIButton
@@ -114,10 +114,6 @@
                                       50*_scale);
     }
     return _cancelBtn;
-}
-
-- (ZCSudokuView *)sudokuView {
-    return self.sudokuViewTemp;
 }
 
 #pragma mark - Action

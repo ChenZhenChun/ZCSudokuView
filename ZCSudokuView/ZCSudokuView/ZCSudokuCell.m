@@ -66,19 +66,19 @@
                                        0,
                                        self.titleLabelSize.width,
                                        self.titleLabelSize.height);
-        CGFloat titleCenterX = self.titleEdgeInsets.left+self.titleEdgeInsets.right+kSelfW/2.0;
-        CGFloat titleCenterY = self.titleEdgeInsets.top+self.titleEdgeInsets.bottom+(_imageView?kSelfH*4/5.0:kSelfH/2.0);
+        CGFloat titleCenterX = self.titleEdgeInsets.left-self.titleEdgeInsets.right+kSelfW/2.0;
+        CGFloat titleCenterY = self.titleEdgeInsets.top-self.titleEdgeInsets.bottom+(_imageView?kSelfH*4/5.0:kSelfH/2.0);
         _titleLabel.center = CGPointMake(titleCenterX,titleCenterY);
     }
     
     //titleBtn位置
     if (_titleBtn) {
         _titleBtn.frame = CGRectMake(0,
-                                       0,
-                                       self.titleBtnSize.width,
-                                       self.titleBtnSize.height);
-        CGFloat titleCenterX = self.titleEdgeInsets.left+self.titleEdgeInsets.right+kSelfW/2.0;
-        CGFloat titleCenterY = self.titleEdgeInsets.top+self.titleEdgeInsets.bottom+(_imageView?kSelfH*4/5.0:kSelfH/2.0);
+                                     0,
+                                     self.titleBtnSize.width,
+                                     self.titleBtnSize.height);
+        CGFloat titleCenterX = self.titleEdgeInsets.left-self.titleEdgeInsets.right+kSelfW/2.0;
+        CGFloat titleCenterY = self.titleEdgeInsets.top-self.titleEdgeInsets.bottom+(_imageView?kSelfH*4/5.0:kSelfH/2.0);
         _titleBtn.center = CGPointMake(titleCenterX,titleCenterY);
     }
 }
@@ -146,3 +146,4 @@
 }
 
 @end
+

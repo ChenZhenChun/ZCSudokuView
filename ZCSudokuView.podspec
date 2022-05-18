@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
 s.name              = "ZCSudokuView"
 
 #更新代码必须修改版本号
-s.version           = "1.1.3.1"
+s.version           = "1.1.4"
 s.summary           = "a sudoku view used on iOS."
 s.description       = <<-DESC
 It is a sudoku view used on iOS, which implement by Objective-C.
@@ -19,10 +19,17 @@ s.requires_arc = true
 
 #source_files路径是相对podspec文件的路径
 
+#分页控件模块
+s.subspec 'ZJJKPageControl' do |ss|
+ss.source_files = 'ZCSudokuView/ZJJKPageControl/*.{h,m}'
+ss.public_header_files = 'ZCSudokuView/ZJJKPageControl/*.h'
+end
+
 #核心模块
 s.subspec 'ZCSudokuView' do |ss|
 ss.source_files = 'ZCSudokuView/ZCSudokuView/*.{h,m}'
 ss.public_header_files = 'ZCSudokuView/ZCSudokuView/*.h'
+ss.dependency 'ZCSudokuView/ZJJKPageControl'
 end
 
 #子模块IJShareView（分享视图控件）

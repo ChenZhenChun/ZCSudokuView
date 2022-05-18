@@ -22,7 +22,7 @@
 }
 @property (nonatomic,assign) CGFloat         scale;//屏幕比例
 @property (nonatomic,strong) UIScrollView   *scrollView;
-@property (nonatomic,strong) UIPageControl  *pageControl;
+@property (nonatomic,strong) ZJJKPageControl  *pageControl;
 
 @end
 
@@ -116,7 +116,6 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     int page = floor((scrollView.contentOffset.x-kSelfW/2)/kSelfW)+1;
     self.pageControl.currentPage = page;
-    
 }
 
 //给九宫格划线
@@ -193,14 +192,18 @@
     return line;
 }
 //初始化翻页控件
-- (UIPageControl *)pageControl {
+- (ZJJKPageControl *)pageControl {
     if (!_pageControl) {
-        _pageControl = [[UIPageControl alloc]init];
+        _pageControl = [[ZJJKPageControl alloc]init];
         _pageControl.backgroundColor = [UIColor clearColor];
-        _pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:0/255.0 green:162/255.0 blue:255/255.0 alpha:1];
-        _pageControl.pageIndicatorTintColor = [UIColor colorWithRed:200/255.0 green:200/255.0 blue:200/255.0 alpha:1];
-        //_pageControl.pageIndicatorTintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"blue_circle_icon"]];
         [_pageControl setUserInteractionEnabled:NO];
+        UIImage *image = [ZCSudokuView imageWithColor:[UIColor colorWithRed:71/255.0 green:133/255.0 blue:255/255.0 alpha:0.4] imageSize:CGSizeMake(4, 4)];
+        UIImage *currentDotImage = [ZCSudokuView imageWithColor:[UIColor colorWithRed:71/255.0 green:133/255.0 blue:255/255.0 alpha:1] imageSize:CGSizeMake(20, 4)];
+        _pageControl.dotImage = image;
+        _pageControl.currentDotImage = currentDotImage;
+        _pageControl.dotSize = CGSizeMake(4, 4);
+        _pageControl.currentDotSize = CGSizeMake(20, 4);
+        _pageControl.spacingBetweenDots = 4;
     }
     return _pageControl;
 }
@@ -210,6 +213,16 @@
         _scale = ([UIScreen mainScreen].bounds.size.height>480?[UIScreen mainScreen].bounds.size.height/667.0:0.851574);
     }
     return _scale;
+}
+
+//制作纯色图片
++ (UIImage *)imageWithColor:(UIColor *)color imageSize:(CGSize)imageSize {
+    UIGraphicsBeginImageContextWithOptions(imageSize, 0, [UIScreen mainScreen].scale);
+    [color set];
+    UIRectFill(CGRectMake(0, 0, imageSize.width, imageSize.height));
+    UIImage *pressedColorImg = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return pressedColorImg;
 }
 
 @end

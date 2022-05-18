@@ -52,6 +52,7 @@
 
 
 #import <UIKit/UIKit.h>
+#import "ZJJKPageControl.h"
 @class ZCSudokuCell;
 @class ZCSudokuView;
 
@@ -76,6 +77,7 @@
 
 @property (nonatomic,assign) id<ZCSudokuViewDelegate>   delegate;
 @property (nonatomic,assign) BOOL                       isDrawLine;//Defaul is no.（默认不画分割线）
+@property (nonatomic,readonly) ZJJKPageControl          *pageControl;
 
 - (void)showWithView:(UIView *)view;//将九宫格显示在view上
 - (void)reloadData;//刷新九宫格

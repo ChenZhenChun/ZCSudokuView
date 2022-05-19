@@ -69,7 +69,7 @@
     if (_pageSizeAmount>1) {
         [self addSubview:self.pageControl];
         _pageControl.frame = CGRectMake(0,kSelfH-kpageControlH,kSelfW,kpageControlH);
-        _pageControl.currentPage = 0;
+        _pageControl.currentPage = (_pageControl.currentPage>(_pageSizeAmount-1))?0:_pageControl.currentPage;
         _pageControl.numberOfPages = _pageSizeAmount;
         _cellH = (kSelfH-kpageControlH)/_rowAmount;
     }else {
